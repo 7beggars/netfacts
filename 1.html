@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grafo em GraphML</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.22.1/cytoscape.min.js"></script>
+</head>
+<body>
+  <div id="cy"></div>
+  <script>
+    const cy = cytoscape({
+      container: document.getElementById('cy'),
+      elements: [
+        { data: { id: 'n0' } },
+        { data: { id: 'n1' } },
+        { data: { id: 'n2' } },
+        {
+          data: {
+            id: 'e0',
+            source: 'n0',
+            target: 'n1'
+          }
+        },
+        {
+          data: {
+            id: 'e1',
+            source: 'n1',
+            target: 'n2'
+          }
+        },
+        {
+          data: {
+            id: 'e2',
+            source: 'n2',
+            target: 'n0'
+          }
+        }
+      ],
+      style: [
+        {
+          selector: 'node',
+          style: {
+            shape: 'circle',
+            'background-color': '#666',
+            label: 'data(id)'
+          }
+        },
+        {
+          selector: 'edge',
+          style: {
+            width: 3,
+            'line-color': '#ccc',
+            'target-arrow-color': '#ccc',
+            'target-arrow-shape': 'triangle'
+          }
+        }
+      ]
+    });
+  </script>
+</body>
+</html>
